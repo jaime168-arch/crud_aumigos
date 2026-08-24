@@ -41,5 +41,32 @@
                     </div>
                 </div>
             </div>
+
+<!-- Módulo de Animais -->
+            <div class="col-md-5 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 text-center p-4">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <div class="bg-info-subtle text-info rounded-circle p-3 mb-3" style="width: 70px; height: 70px;">
+                            <i class="bi bi-award-fill fs-2"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-dark">Animais</h4>
+                        <p class="card-text text-muted mb-4">Cadastre novos pets, edite fichas médicas e vincule cada animal ao seu devido dono.</p>
+                        <a href="public/animais/listar_a.php" class="btn btn-outline-primary w-100 mt-auto">
+                            Acessar Animais <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="bg-white text-center text-muted py-3 border-top mt-auto">
+        <small>&copy; <?= date('Y') ?> AUmigos Pet Shop — Todos os direitos reservados</small>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
