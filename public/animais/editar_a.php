@@ -1,18 +1,27 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 $id = $_GET['id'] ?? null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("UPDATE animais SET cliente_id=?, nome=?, especie=?, raca=?, idade=? WHERE id=?");
-    $stmt->execute([$_POST['cliente_id'], $_POST['nome'], $_POST['especie'], $_POST['raca'], $_POST['idade'], $id]);
+    $cliente_id = $_POST['cliente_id'];
+    $nome       = $_POST['nome'];
+    $especie    = $_POST['especie'];
+    $raca       = $_POST['raca'];
+    $idade      = $_POST['idade'];
+
+    $sql = "UPDATE animais SET cliente_id='$cliente_id', nome='$nome', especie='$especie', raca='$raca', idade='$idade' WHERE id='$id'";
+    mysqli_query($conn, $sql);
+
     header('Location: listar_a.php');
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM animais WHERE id = ?");
-$stmt->execute([$id]);
-$pet = $stmt->fetch();
-$clientes = $pdo->query("SELECT id, nome FROM clientes ORDER BY nome")->fetchAll();
+$resPet = mysqli_query($conn, "SELECT * FROM animais WHERE id = '$id'");
+$pet = mysqli_fetch_assoc($resPet);
+
+$resClientes = mysqli_query($conn, "SELECT id, nome FROM clientes ORDER BY nome");
+$clientes = mysqli_fetch_all($resClientes, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

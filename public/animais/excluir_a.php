@@ -1,9 +1,10 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
-if (!empty($_GET['id'])) {
-    $stmt = $pdo->prepare("DELETE FROM animais WHERE id = ?");
-    $stmt->execute([$_GET['id']]);
+$id = $_GET['id'] ?? null;
+
+if ($id) {
+    mysqli_query($conn, "DELETE FROM animais WHERE id = '$id'");
 }
 
 header('Location: listar_a.php');

@@ -1,14 +1,22 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("INSERT INTO animais (cliente_id, nome, especie, raca, idade) VALUES (?, ?, ?, ?, ?)");
-    $stmt->execute([$_POST['cliente_id'], $_POST['nome'], $_POST['especie'], $_POST['raca'], $_POST['idade']]);
+    $cliente_id = $_POST['cliente_id'];
+    $nome       = $_POST['nome'];
+    $especie    = $_POST['especie'];
+    $raca       = $_POST['raca'];
+    $idade      = $_POST['idade'];
+
+    $sql = "INSERT INTO animais (cliente_id, nome, especie, raca, idade) VALUES ('$cliente_id', '$nome', '$especie', '$raca', '$idade')";
+    mysqli_query($conn, $sql);
+    
     header('Location: listar_a.php');
     exit;
 }
 
-$clientes = $pdo->query("SELECT id, nome FROM clientes ORDER BY nome")->fetchAll();
+$resClientes = mysqli_query($conn, "SELECT id, nome FROM clientes ORDER BY nome");
+$clientes = mysqli_fetch_all($resClientes, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

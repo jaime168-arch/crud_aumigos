@@ -1,11 +1,12 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 $sql = "SELECT animais.*, clientes.nome AS dono 
         FROM animais 
         INNER JOIN clientes ON animais.cliente_id = clientes.id 
         ORDER BY animais.id DESC";
-$animais = $pdo->query($sql)->fetchAll();
+$result = mysqli_query($conn, $sql);
+$animais = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
