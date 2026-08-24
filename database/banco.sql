@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS animais (
     especie VARCHAR(50) NOT NULL,
     raca VARCHAR(50) NOT NULL,
     idade INT NOT NULL,
-    FOREING KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 INSERT INTO clientes (nome, telefone, email) VALUES
