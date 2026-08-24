@@ -22,5 +22,24 @@
         </div>
     </div>
     
+    <!-- Navegação em Cards / Dashboard Slim -->
+    <div class="container my-auto py-5">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Módulo de Clientes -->
+            <div class="col-md-5 col-lg-4">
+                <div class="card h-100 shadow-sm border-0 text-center p-4">
+                    <div class="card-body d-flex flex-column align-items-center">
+                        <div class="bg-primary-subtle text-primary rounded-circle p-3 mb-3" style="width: 70px; height: 70px;">
+                            <i class="bi bi-people-fill fs-2"></i>
+                        </div>
+                        <h4 class="card-title fw-bold text-dark">Clientes</h4>
+                        <p class="card-text text-muted mb-4">Gerencie os tutores, informações de contato e visualize os seus pets cadastrados.</p>
+                        <a href="public/clientes/listar_c.php" class="btn btn-primary w-100 mt-auto">
+                            Acessar Clientes <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
 </body>
 </html>
