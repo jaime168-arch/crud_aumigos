@@ -18,3 +18,7 @@ CREATE TABLE IF NOT EXISTS animais (
     idade INT NOT NULL,
     FOREING KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+INSERT INTO clientes (nome, telefone, email) VALUES
+('Ícaro Botelho', '(51)99901-6767', 'icaro67b@gmail.com'),
+('Djennifer Silva', '(47)99643-6700', 'djennifers123@gmail.com');
