@@ -22,3 +22,8 @@ CREATE TABLE IF NOT EXISTS animais (
 INSERT INTO clientes (nome, telefone, email) VALUES
 ('Ícaro Botelho', '(51)99901-6767', 'icaro67b@gmail.com'),
 ('Djennifer Silva', '(47)99643-6700', 'djennifers123@gmail.com');
+
+INSERT INTO animais (cliente_id, nome, especie, raca, idade) VALUES
+(1, 'Odin', 'Gato', 'Persa', 5),
+(1, 'Thanos', 'Cachorro', 'Dogo argentino', 3),
+(2, 'Sansão', 'Cachorro', 'Lulu da pomerânia', 2);
