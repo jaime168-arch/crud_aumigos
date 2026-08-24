@@ -18,3 +18,11 @@ h2, h3, h5 {
   color: #0f172a;
   letter-spacing: -0.02em;
 }
+
+.card {
+  border: none !important;
+  border-radius: var(--border-radius) !important;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
