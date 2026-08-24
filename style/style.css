@@ -73,3 +73,23 @@ h2, h3, h5 {
   color: #475569;
   margin-bottom: 0.35rem;
 }
+
+.table {
+  vertical-align: middle;
+}
+
+.table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  font-weight: 700;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 1rem 0.75rem;
+}
+
+.table tbody td {
+  padding: 0.9rem 0.75rem;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+}
