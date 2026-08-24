@@ -26,3 +26,8 @@ h2, h3, h5 {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   overflow: hidden;
 }
+
+.card-header {
+  border-bottom: 1px solid #f1f5f9 !important;
+  font-weight: 600;
+}
