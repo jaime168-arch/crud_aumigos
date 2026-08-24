@@ -1,9 +1,14 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("INSERT INTO clientes (nome, telefone, email) VALUES (?, ?, ?)");
-    $stmt->execute([$_POST['nome'], $_POST['telefone'], $_POST['email']]);
+    $nome     = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $email    = $_POST['email'];
+
+    $sql = "INSERT INTO clientes (nome, telefone, email) VALUES ('$nome', '$telefone', '$email')";
+    mysqli_query($conn, $sql);
+
     header('Location: listar_c.php');
     exit;
 }

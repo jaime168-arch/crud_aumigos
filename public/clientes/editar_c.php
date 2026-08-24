@@ -1,17 +1,22 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 $id = $_GET['id'] ?? null;
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("UPDATE clientes SET nome=?, telefone=?, email=? WHERE id=?");
-    $stmt->execute([$_POST['nome'], $_POST['telefone'], $_POST['email'], $id]);
+    $nome     = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $email    = $_POST['email'];
+
+    $sql = "UPDATE clientes SET nome='$nome', telefone='$telefone', email='$email' WHERE id='$id'";
+    mysqli_query($conn, $sql);
+
     header('Location: listar_c.php');
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = ?");
-$stmt->execute([$id]);
-$cliente = $stmt->fetch();
+$res = mysqli_query($conn, "SELECT * FROM clientes WHERE id = '$id'");
+$cliente = mysqli_fetch_assoc($res);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

@@ -1,21 +1,20 @@
 <?php
-require_once '../../infra/conexao.php';
+require_once __DIR__ . '/../../infra/conexao.php';
 
 $detalhes_id = $_GET['detalhes_id'] ?? null;
 $cliente = null;
 $animais = [];
 
 if ($detalhes_id) {
-    $stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = ?");
-    $stmt->execute([$detalhes_id]);
-    $cliente = $stmt->fetch();
+    $resCli = mysqli_query($conn, "SELECT * FROM clientes WHERE id = '$detalhes_id'");
+    $cliente = mysqli_fetch_assoc($resCli);
 
-    $stmtA = $pdo->prepare("SELECT * FROM animais WHERE cliente_id = ?");
-    $stmtA->execute([$detalhes_id]);
-    $animais = $stmtA->fetchAll();
+    $resAnimais = mysqli_query($conn, "SELECT * FROM animais WHERE cliente_id = '$detalhes_id'");
+    $animais = mysqli_fetch_all($resAnimais, MYSQLI_ASSOC);
 }
 
-$clientes = $pdo->query("SELECT * FROM clientes ORDER BY id DESC")->fetchAll();
+$resClientes = mysqli_query($conn, "SELECT * FROM clientes ORDER BY id DESC");
+$clientes = mysqli_fetch_all($resClientes, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
